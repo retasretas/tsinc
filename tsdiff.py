@@ -12,6 +12,7 @@ ran_time = datetime.datetime.now()
 
 diffsec = 0
 for file in files:
+    # タイムスタンプが重複しないよう秒数をインクリメントする
     diffsec += 1
     # 作成日時を取得する。(0:年、1:時、2:分、3:秒、4:月、5:日)の順の配列を取得
     tmp = commands.getoutput( "ls -lUT %s | awk '{print $9,$8,$6,$7}' | sed 's/:/ /g'" % (file) ).split(' ')
